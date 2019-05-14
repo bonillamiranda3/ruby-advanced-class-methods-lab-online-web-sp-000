@@ -7,6 +7,10 @@ class Song
     @@all
   end
 
+  def save
+    self.class.all << self
+  end
+
   def self.create
     song = self.new
     song.save
@@ -27,13 +31,6 @@ class Song
     song
   end
 
-  def self.all
-    @@all
-  end
-
-  def save
-    self.class.all << self
-  end
 
   def self.find_by_name(search)
     @@all.find do |song|
